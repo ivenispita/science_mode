@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ivenis Pita | Postdoctoral Associate</title>
+  <meta name="description" content="Academic website of Ivenis Pita, Postdoctoral Associate in the Ocean Sciences Department at the Rosenstiel School, studying sustained ocean observations, AMOC variability, and climate." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#f5f8fc;
+      --surface:#ffffff;
+      --surface-2:#eef4fb;
+      --text:#122033;
+      --muted:#546477;
+      --line:#d8e3f1;
+      --primary:#0c4a7c;
+      --primary-2:#1b6ca8;
+      --accent:#0f766e;
+      --shadow:0 14px 40px rgba(11,35,66,.10);
+      --radius:22px;
+      --maxw:1180px;
+      --highlight-bg:#fff3bf;
+      --highlight-border:#f59f00;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:'Inter',system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      color:var(--text);
+      background:linear-gradient(180deg,#f9fbfe 0%, #edf4fb 100%);
+      line-height:1.65;
+    }
+
+    a{color:var(--primary-2);text-decoration:none}
+    a:hover{text-decoration:underline}
+    img{max-width:100%;display:block}
+
+    .container{
+      width:min(var(--maxw), calc(100% - 2rem));
+      margin:0 auto;
+    }
+
+    .topbar{
+      background:#0c1830;
+      color:#dbe6f4;
+      font-size:.92rem;
+    }
+    .topbar-inner{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:1rem;
+      padding:.8rem 0;
+      flex-wrap:wrap;
+    }
+    .topbar .social{
+      display:flex;
+      gap:1rem;
+      align-items:center;
+    }
+    .topbar a{color:#dbe6f4}
+
+    .site-header{
+      position:sticky;
+      top:0;
+      z-index:50;
+      backdrop-filter:blur(10px);
+      background:rgba(249,251,254,.82);
+      border-bottom:1px solid rgba(216,227,241,.8);
+    }
+    .nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:1rem;
+      min-height:78px;
+    }
+    .brand{
+      font-weight:800;
+      letter-spacing:-.03em;
+      font-size:1.18rem;
+      color:var(--text);
+    }
+    .brand small{
+      display:block;
+      font-weight:500;
+      color:var(--muted);
+      font-size:.78rem;
+      letter-spacing:0;
+      margin-top:.12rem;
+    }
+    .nav-links{
+      display:flex;
+      gap:1.1rem;
+      align-items:center;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .nav-links a{
+      color:var(--text);
+      font-weight:500;
+      font-size:.96rem;
+    }
+    .button{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:.5rem;
+      padding:.92rem 1.2rem;
+      border-radius:999px;
+      border:1px solid transparent;
+      font-weight:600;
+      transition:.2s ease;
+      box-shadow:none;
+    }
+    .button:hover{text-decoration:none; transform:translateY(-1px)}
+    .button-primary{
+      background:linear-gradient(135deg,var(--primary),var(--primary-2));
+      color:white;
+      box-shadow:0 12px 28px rgba(12,74,124,.22);
+    }
+    .button-secondary{
+      background:white;
+      color:var(--text);
+      border-color:var(--line);
+    }
+
+    .hero{
+      padding:5.4rem 0 3.8rem;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:auto -12% -10% auto;
+      width:440px;
+      height:440px;
+      background:radial-gradient(circle at center, rgba(27,108,168,.16), rgba(27,108,168,0));
+      pointer-events:none;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:2rem;
+      align-items:center;
+    }
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:.5rem;
+      padding:.45rem .8rem;
+      border-radius:999px;
+      background:rgba(27,108,168,.08);
+      color:var(--primary);
+      font-weight:700;
+      font-size:.84rem;
+      letter-spacing:.02em;
+      text-transform:uppercase;
+      margin-bottom:1.2rem;
+    }
+    h1{
+      margin:.1rem 0 1rem;
+      font-size:clamp(2.45rem, 4vw, 4.6rem);
+      line-height:1.03;
+      letter-spacing:-.045em;
+    }
+    .hero-subtitle{
+      font-size:1.18rem;
+      color:var(--muted);
+      max-width:700px;
+      margin-bottom:1.6rem;
+    }
+    .hero-meta{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0,1fr));
+      gap:1rem;
+      margin-top:1.8rem;
+    }
+    .stat{
+      background:rgba(255,255,255,.75);
+      border:1px solid rgba(216,227,241,.9);
+      box-shadow:var(--shadow);
+      border-radius:20px;
+      padding:1rem 1rem .95rem;
+    }
+    .stat strong{
+      display:block;
+      font-size:1.08rem;
+      margin-bottom:.2rem;
+    }
+    .stat span{
+      color:var(--muted);
+      font-size:.95rem;
+    }
+
+    .hero-card{
+      background:linear-gradient(180deg, rgba(255,255,255,.97), rgba(247,250,254,.94));
+      border:1px solid rgba(216,227,241,.85);
+      border-radius:30px;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    .hero-card img{
+      width:100%;
+      aspect-ratio:4/4.2;
+      object-fit:cover;
+    }
+    .hero-card-content{
+      padding:1.2rem 1.3rem 1.35rem;
+    }
+    .hero-card-content h3{
+      margin:0 0 .35rem;
+      font-size:1.1rem;
+    }
+    .hero-card-content p{
+      margin:0;
+      color:var(--muted);
+      font-size:.96rem;
+    }
+
+    main section{
+      padding:1.3rem 0 2.6rem;
+    }
+
+    .section-header{
+      display:flex;
+      justify-content:space-between;
+      gap:1rem;
+      align-items:end;
+      margin-bottom:1.35rem;
+      flex-wrap:wrap;
+    }
+    .section-kicker{
+      color:var(--primary);
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      font-weight:800;
+      font-size:.8rem;
+      margin-bottom:.45rem;
+      display:block;
+    }
+    h2{
+      margin:0;
+      font-size:clamp(1.7rem, 2.5vw, 2.6rem);
+      letter-spacing:-.04em;
+      line-height:1.05;
+    }
+    .section-intro{
+      color:var(--muted);
+      max-width:780px;
+      margin:0;
+      font-size:1.02rem;
+    }
+
+    .panel{
+      background:var(--surface);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+    }
+
+    .about-grid{
+      display:grid;
+      grid-template-columns:.9fr 1.1fr;
+      gap:1.5rem;
+      align-items:stretch;
+    }
+    .about-image{
+      min-height:420px;
+      overflow:hidden;
+      border-radius:var(--radius);
+    }
+    .about-image img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+    .about-text{
+      padding:1.6rem 1.6rem 1.3rem;
+    }
+    .about-text p{
+      margin:.2rem 0 1rem;
+      color:var(--muted);
+      font-size:1rem;
+    }
+    .tag-list{
+      display:flex;
+      flex-wrap:wrap;
+      gap:.65rem;
+      margin-top:1.2rem;
+    }
+    .tag{
+      display:inline-flex;
+      padding:.55rem .85rem;
+      border-radius:999px;
+      background:var(--surface-2);
+      color:var(--primary);
+      font-weight:600;
+      font-size:.9rem;
+      border:1px solid #d8e5f3;
+    }
+
+    .grid-3{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0,1fr));
+      gap:1.2rem;
+    }
+    .card{
+      background:var(--surface);
+      border:1px solid var(--line);
+      border-radius:24px;
+      box-shadow:var(--shadow);
+      padding:1.35rem;
+      height:100%;
+    }
+    .card h3{
+      margin:.3rem 0 .6rem;
+      font-size:1.18rem;
+      letter-spacing:-.03em;
+    }
+    .card p{
+      margin:0;
+      color:var(--muted);
+      font-size:.98rem;
+    }
+    .card-number{
+      width:2.2rem;
+      height:2.2rem;
+      border-radius:999px;
+      display:grid;
+      place-items:center;
+      background:rgba(12,74,124,.09);
+      color:var(--primary);
+      font-weight:800;
+      font-size:.95rem;
+    }
+
+    .featured-grid{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0,1fr));
+      gap:1.2rem;
+    }
+    .pub-card{
+      padding:1.35rem;
+      display:flex;
+      flex-direction:column;
+      gap:.9rem;
+    }
+    .pub-type{
+      display:inline-flex;
+      align-self:flex-start;
+      background:#edf5ff;
+      color:#15538a;
+      font-weight:700;
+      border-radius:999px;
+      padding:.38rem .72rem;
+      font-size:.78rem;
+      text-transform:uppercase;
+      letter-spacing:.04em;
+    }
+    .pub-card h3{
+      margin:0;
+      font-size:1.15rem;
+      line-height:1.28;
+      letter-spacing:-.03em;
+    }
+    .pub-card p{
+      margin:0;
+      color:var(--muted);
+      flex:1;
+    }
+
+    .pub-list{
+      margin-top:1.2rem;
+      display:grid;
+      gap:.85rem;
+    }
+    .pub-item{
+      padding:1rem 1.15rem;
+      border-radius:18px;
+      background:white;
+      border:1px solid var(--line);
+      display:flex;
+      justify-content:space-between;
+      gap:1rem;
+      align-items:flex-start;
+      flex-wrap:wrap;
+      box-shadow:0 10px 22px rgba(11,35,66,.06);
+    }
+    .pub-item strong{
+      display:block;
+      margin-bottom:.22rem;
+    }
+    .pub-item span{
+      color:var(--muted);
+      font-size:.96rem;
+    }
+
+    .two-col{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:1.2rem;
+    }
+    .list-clean{
+      display:grid;
+      gap:.95rem;
+      margin:1rem 0 0;
+      padding:0;
+      list-style:none;
+    }
+    .list-clean li{
+      position:relative;
+      padding-left:1.1rem;
+      color:var(--muted);
+    }
+    .list-clean li::before{
+      content:"";
+      position:absolute;
+      left:0;
+      top:.72rem;
+      width:.42rem;
+      height:.42rem;
+      border-radius:999px;
+      background:var(--accent);
+    }
+
+    .contact-card{
+      padding:1.45rem;
+    }
+    .contact-grid{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:1.2rem;
+    }
+    .contact-info p{
+      margin:.25rem 0;
+      color:var(--muted);
+    }
+    .contact-links{
+      display:grid;
+      gap:.7rem;
+    }
+    .contact-link{
+      padding:.95rem 1rem;
+      border-radius:16px;
+      border:1px solid var(--line);
+      background:#fff;
+      font-weight:600;
+    }
+
+    .highlight{
+      background:var(--highlight-bg) !important;
+      border:2px dashed var(--highlight-border) !important;
+      position:relative;
+    }
+    .highlight::before{
+      content:"REVIEW / UPDATE";
+      position:absolute;
+      top:.8rem;
+      right:.9rem;
+      font-size:.72rem;
+      font-weight:800;
+      letter-spacing:.06em;
+      color:#8a4b00;
+      background:rgba(255,255,255,.7);
+      padding:.2rem .45rem;
+      border-radius:999px;
+    }
+    .highlight-inline{
+      background:var(--highlight-bg);
+      outline:2px dashed var(--highlight-border);
+      outline-offset:2px;
+      padding:.05rem .25rem;
+      border-radius:.35rem;
+    }
+
+    footer{
+      padding:2rem 0 3rem;
+      color:var(--muted);
+      font-size:.95rem;
+    }
+    .footer-inner{
+      display:flex;
+      justify-content:space-between;
+      gap:1rem;
+      flex-wrap:wrap;
+      border-top:1px solid var(--line);
+      padding-top:1.3rem;
+    }
+
+    @media (max-width: 980px){
+      .hero-grid,
+      .about-grid,
+      .contact-grid,
+      .two-col,
+      .featured-grid,
+      .grid-3{
+        grid-template-columns:1fr;
+      }
+      .hero-meta{
+        grid-template-columns:1fr;
+      }
+      .nav{
+        padding:1rem 0;
+      }
+      .nav-links{
+        gap:.8rem;
+      }
+    }
+
+    @media (max-width: 640px){
+      .hero{
+        padding-top:4.2rem;
+      }
+      .topbar-inner{
+        padding:.9rem 0;
+      }
+      .brand{
+        font-size:1.05rem;
+      }
+      .button{
+        width:100%;
+      }
+      .hero-actions{
+        display:grid;
+        gap:.7rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <div>Contact: <strong>icp34@miami.edu</strong> | <strong>ivenis.pita@rsmas.miami.edu</strong></div>
+      <div class="social">
+        <a href="https://scholar.google.com/citations?user=HHpH-NsAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
+        <a href="https://www.researchgate.net/profile/Ivenis_Pita2" target="_blank" rel="noopener">ResearchGate</a>
+        <a href="https://github.com/ivenispita" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.instagram.com/ivenispita" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container nav">
+      <div class="brand">
+        Ivenis Pita
+        <small>Postdoctoral Associate</small>
+      </div>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="#teaching">Teaching & Leadership</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Physical Oceanography • Climate • Observations</div>
+          <h1>Sustained ocean observations, AMOC variability, and climate.</h1>
+          <p class="hero-subtitle">
+            I am a Postdoctoral Associate in the Ocean Sciences Department at the Rosenstiel School, using sustained ocean observations to investigate large-scale circulation, with emphasis on the Atlantic Meridional Overturning Circulation (AMOC), its variability, and its importance for climate.
+          </p>
+          <div class="hero-actions" style="display:flex; gap:.8rem; flex-wrap:wrap;">
+            <a class="button button-primary" href="#research">Explore Research</a>
+            <a class="button button-secondary" href="#publications">View Publications</a>
+            <a class="button button-secondary highlight" href="REPLACE_WITH_EXTERNAL_CV_LINK" target="_blank" rel="noopener">Add CV Link</a>
+          </div>
+          <div class="hero-meta">
+            <div class="stat">
+              <strong>Current position</strong>
+              <span>Postdoctoral Associate</span>
+            </div>
+            <div class="stat">
+              <strong>Institution</strong>
+              <span>Rosenstiel School • Ocean Sciences Department</span>
+            </div>
+            <div class="stat highlight">
+              <strong>Optional quick metric</strong>
+              <span>Add citations, papers, or a short impact statement here.</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-card">
+          <img src="img/me.jpg" alt="Portrait of Ivenis Pita">
+          <div class="hero-card-content">
+            <h3>Research focus</h3>
+            <p>
+              Observing the ocean through sustained measurements, understanding AMOC variability, and expanding into Labrador Sea ventilation processes and their climate relevance.
+            </p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="section-kicker">About</span>
+            <h2>Researcher in observational physical oceanography</h2>
+          </div>
+          <p class="section-intro">
+            This section introduces your current profile rather than your student trajectory, helping visitors quickly understand your present research direction and academic identity.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-image panel">
+            <img src="img/rsmas.jpg" alt="Rosenstiel School">
+          </div>
+          <article class="about-text panel">
+            <p>
+              I am a Postdoctoral Associate in the Ocean Sciences Department at the Rosenstiel School of Marine, Atmospheric, and Earth Science. My research uses sustained ocean observations to study large-scale circulation and its role in climate variability, with particular emphasis on the Atlantic Meridional Overturning Circulation (AMOC), ocean heat transport, and the mechanisms driving recent changes in the Atlantic Ocean.
+            </p>
+            <p>
+              My current work focuses primarily on observational approaches to AMOC variability and its climate relevance. More broadly, I am interested in how long-term ocean measurements can reveal changes in circulation, ventilation, and water-mass transformation across the Atlantic. I am also developing research directions related to Labrador Sea ventilation processes and their role in climate-relevant circulation changes.
+            </p>
+            <p class="highlight">
+              You may want to add one short sentence here with your current group, advisors, program, or a concise statement about the observational systems or datasets you work with most often.
+            </p>
+
+            <div class="tag-list">
+              <span class="tag">Sustained Ocean Observations</span>
+              <span class="tag">AMOC Variability</span>
+              <span class="tag">Climate Relevance</span>
+              <span class="tag">Atlantic Heat Transport</span>
+              <span class="tag">Labrador Sea Ventilation</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="research">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="section-kicker">Research</span>
+            <h2>Current research themes</h2>
+          </div>
+          <p class="section-intro">
+            These themes reflect the scientific areas you said should define the site: your current observational work, AMOC and climate, and future development toward Labrador Sea processes.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <article class="card">
+            <div class="card-number">01</div>
+            <h3>Sustained ocean observations</h3>
+            <p>
+              I use long-term and repeat observations to investigate ocean variability across timescales, with emphasis on the value of sustained measurements for understanding large-scale circulation and detecting meaningful changes in the Atlantic Ocean.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-number">02</div>
+            <h3>AMOC variability and climate importance</h3>
+            <p>
+              A central theme of my work is understanding the Atlantic Meridional Overturning Circulation, the mechanisms behind its recent variability, and the implications of overturning and heat transport changes for regional and global climate.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-number">03</div>
+            <h3>Subpolar North Atlantic processes</h3>
+            <p>
+              I am expanding this research toward Labrador Sea ventilation processes and their links to water-mass transformation, subpolar circulation, and broader climate-relevant variability in the North Atlantic.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="publications">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="section-kicker">Publications</span>
+            <h2>Featured publications and selected work</h2>
+          </div>
+          <p class="section-intro">
+            The first row highlights the papers you wanted to foreground. Below that, you can keep a fuller publication list with external links.
+          </p>
+        </div>
+
+        <div class="featured-grid">
+          <article class="panel pub-card">
+            <span class="pub-type">Featured paper</span>
+            <h3>Global oceans – Meridional overturning circulation and heat transport in the Atlantic Ocean [in: State of the Climate in 2023]</h3>
+            <p>
+              A synthesis contribution highlighting the state of the Atlantic overturning circulation and associated heat transport within the climate system.
+            </p>
+            <a class="button button-secondary" href="https://journals.ametsoc.org/view/journals/bams/105/8/BAMS-D-24-0104.1.xml" target="_blank" rel="noopener">Open publication</a>
+          </article>
+
+          <article class="panel pub-card">
+            <span class="pub-type">Featured paper</span>
+            <h3>AXMOC-related study on South Atlantic overturning variability</h3>
+            <p>
+              Observational analysis focused on Atlantic overturning variability and associated transport structure in the South Atlantic.
+            </p>
+            <a class="button button-secondary" href="https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/2023JC020010" target="_blank" rel="noopener">Open publication</a>
+          </article>
+
+          <article class="panel pub-card">
+            <span class="pub-type">Featured paper</span>
+            <h3>AXMOC-related study published in Frontiers in Marine Science</h3>
+            <p>
+              A broader observational perspective on Atlantic overturning variability using sustained measurements and observationally based diagnostics.
+            </p>
+            <a class="button button-secondary" href="https://www.frontiersin.org/journals/marine-science/articles/10.3389/fmars.2024.1474133/full" target="_blank" rel="noopener">Open publication</a>
+          </article>
+        </div>
+
+        <div class="panel" style="padding:1.25rem; margin-top:1.2rem;">
+          <h3 style="margin:.1rem 0 .6rem; font-size:1.25rem;">Selected and full publication list</h3>
+          <p style="margin:0 0 1rem; color:var(--muted);">
+            Add your full publication list below in reverse chronological order. You can keep this concise on the homepage and link to a separate page later if the list grows.
+          </p>
+
+          <div class="pub-list">
+            <div class="pub-item">
+              <div>
+                <strong>Volkov, D., <span class="highlight-inline">Pita, I.</span>, et al. — Global oceans: Meridional overturning circulation and heat transport in the Atlantic Ocean [in: State of the Climate in 2023]</strong>
+                <span>Bulletin of the American Meteorological Society / State of the Climate contribution.</span>
+              </div>
+              <a href="https://journals.ametsoc.org/view/journals/bams/105/8/BAMS-D-24-0104.1.xml" target="_blank" rel="noopener">Link</a>
+            </div>
+
+            <div class="pub-item">
+              <div>
+                <strong>Pita, I., et al. — <span class="highlight-inline">Replace with the exact title from the AGU paper</span></strong>
+                <span>Journal of Geophysical Research: Oceans, 2024.</span>
+              </div>
+              <a href="https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/2023JC020010" target="_blank" rel="noopener">Link</a>
+            </div>
+
+            <div class="pub-item">
+              <div>
+                <strong>Pita, I., et al. — <span class="highlight-inline">Replace with the exact title from the Frontiers paper</span></strong>
+                <span>Frontiers in Marine Science, 2024.</span>
+              </div>
+              <a href="https://www.frontiersin.org/journals/marine-science/articles/10.3389/fmars.2024.1474133/full" target="_blank" rel="noopener">Link</a>
+            </div>
+
+            <div class="pub-item highlight">
+              <div>
+                <strong>Add the rest of your publication list here</strong>
+                <span>You can duplicate this block for each paper, or later convert this section into a separate publications page.</span>
+              </div>
+              <a href="#">Edit</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="teaching">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="section-kicker">Teaching & Leadership</span>
+            <h2>Teaching, scientific service, and community engagement</h2>
+          </div>
+          <p class="section-intro">
+            This section was designed around the priorities you mentioned: undergraduate teaching, workshop instruction, and leadership through conference service.
+          </p>
+        </div>
+
+        <div class="two-col">
+          <article class="panel" style="padding:1.35rem;">
+            <h3 style="margin:.1rem 0 .4rem;">Teaching</h3>
+            <p style="margin:0; color:var(--muted);">
+              I value teaching as an essential part of academic life and as a way to connect research with student learning and scientific curiosity.
+            </p>
+            <ul class="list-clean">
+              <li>Workshop instructor in machine learning applications for oceanography.</li>
+              <li>Teaching experience with undergraduate classes at the University of Miami.</li>
+              <li>Interest in research-based teaching, student engagement, and scientific communication.</li>
+              <li class="highlight">Optional: add specific course names, dates, or 1–2 representative teaching activities.</li>
+            </ul>
+          </article>
+
+          <article class="panel" style="padding:1.35rem;">
+            <h3 style="margin:.1rem 0 .4rem;">Leadership & Service</h3>
+            <p style="margin:0; color:var(--muted);">
+              Beyond research, I contribute to the scientific community through leadership, mentoring, and academic service.
+            </p>
+            <ul class="list-clean">
+              <li>Chair of the AMOC section at Ocean Sciences Meeting 2026.</li>
+              <li>Scientific leadership through conference organization and broader community engagement.</li>
+              <li>Commitment to mentoring, collaboration, and research communication.</li>
+              <li class="highlight">Optional: add more leadership roles, invited talks, or service activities here.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="section-kicker">Contact</span>
+            <h2>Get in touch</h2>
+          </div>
+          <p class="section-intro">
+            A clean contact section works better here than the older multi-column layout and outdated mailing-address-heavy format.
+          </p>
+        </div>
+
+        <div class="panel contact-card">
+          <div class="contact-grid">
+            <div class="contact-info">
+              <h3 style="margin:.1rem 0 .55rem;">Ivenis Pita</h3>
+              <p><strong>Position:</strong> Postdoctoral Associate</p>
+              <p><strong>Affiliation:</strong> Rosenstiel School of Marine, Atmospheric, and Earth Science</p>
+              <p><strong>Department:</strong> Ocean Sciences Department</p>
+              <p><strong>Email:</strong> icp34@miami.edu</p>
+              <p><strong>Email:</strong> ivenis.pita@rsmas.miami.edu</p>
+              <p class="highlight"><strong>Optional:</strong> add office location only if you still want it visible on the site.</p>
+            </div>
+
+            <div class="contact-links">
+              <a class="contact-link" href="https://scholar.google.com/citations?user=HHpH-NsAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
+              <a class="contact-link" href="https://www.researchgate.net/profile/Ivenis_Pita2" target="_blank" rel="noopener">ResearchGate</a>
+              <a class="contact-link" href="https://github.com/ivenispita" target="_blank" rel="noopener">GitHub</a>
+              <a class="contact-link highlight" href="REPLACE_WITH_EXTERNAL_CV_LINK" target="_blank" rel="noopener">Add external CV link</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>© 2026 Ivenis Pita</div>
+      <div>Built as a modern academic profile website focused on research, publications, teaching, and scientific leadership.</div>
+    </div>
+  </footer>
+</body>
+</html>
