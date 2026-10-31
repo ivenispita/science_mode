@@ -341,6 +341,39 @@
       font-size:.95rem;
     }
 
+    .cruise-summary{
+      display:flex;
+      gap:.75rem;
+      flex-wrap:wrap;
+      margin-top:1rem;
+    }
+    .cruise-stat{
+      display:inline-flex;
+      align-items:center;
+      gap:.45rem;
+      padding:.58rem .85rem;
+      border-radius:999px;
+      background:var(--surface-2);
+      color:var(--primary);
+      border:1px solid #d8e5f3;
+      font-weight:700;
+      font-size:.9rem;
+    }
+    .cruise-card{
+      display:flex;
+      flex-direction:column;
+      gap:.8rem;
+    }
+    .cruise-card .cruise-meta{
+      color:var(--primary);
+      font-weight:700;
+      font-size:.9rem;
+    }
+    .cruise-card .button{
+      align-self:flex-start;
+      margin-top:auto;
+    }
+
     .featured-grid{
       display:grid;
       grid-template-columns:repeat(3, minmax(0,1fr));
@@ -544,6 +577,7 @@
         <a href="#home">Home</a>
         <a href="#about">About</a>
         <a href="#research">Research</a>
+        <a href="#cruises">Scientific Cruises</a>
         <a href="#publications">Publications</a>
         <a href="#teaching">Teaching & Leadership</a>
         <a href="#contact">Contact</a>
@@ -656,6 +690,57 @@
             <h3>Subpolar North Atlantic processes</h3>
             <p>
               My postdoctoral research at WHOI focuses on subpolar North Atlantic ventilation pathways and their links to water-mass transformation, subpolar circulation, and broader climate-relevant variability in the North Atlantic.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="cruises">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="section-kicker">Field Experience</span>
+            <h2>Scientific cruises</h2>
+          </div>
+          <div>
+            <p class="section-intro">
+              Ship-based observations have been an important part of my training as an observational oceanographer. The cruises listed below represent 52 days at sea across the tropical, subtropical, and North Atlantic.
+            </p>
+            <div class="cruise-summary" aria-label="Cruise experience summary">
+              <span class="cruise-stat">52 days at sea</span>
+              <span class="cruise-stat">RAPID/MOCHA • AX97/MOVAR • UFBA</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid-3">
+          <article class="card cruise-card">
+            <div class="card-number">01</div>
+            <div class="cruise-meta">2025 • 18 days at sea</div>
+            <h3>RAPID/MOCHA Cruise</h3>
+            <p>
+              Participated in the U.S. RAPID-MOCHA/WBTS field program supporting sustained observations of the Atlantic Meridional Overturning Circulation at 26.5°N.
+            </p>
+            <a class="button button-secondary" href="https://scholarship.miami.edu/esploro/outputs/report/Cruise-Report-for-the-US-Rapid-MOCHA-WBTS/991032629435302976" target="_blank" rel="noopener">View cruise report</a>
+          </article>
+
+          <article class="card cruise-card">
+            <div class="card-number">02</div>
+            <div class="cruise-meta">2017–2018 • 3 cruises • 27 days at sea</div>
+            <h3>AX97 / MOVAR Project</h3>
+            <p>
+              Participated in three observational cruises along the AX97 high-density XBT transect between Rio de Janeiro and Trindade Island, contributing to sustained observations of the western South Atlantic.
+            </p>
+            <!-- TODO: Add the MOVAR cruise certificate PDF to the repository and place its link here. -->
+          </article>
+
+          <article class="card cruise-card">
+            <div class="card-number">03</div>
+            <div class="cruise-meta">7 days at sea</div>
+            <h3>Federal University of Bahia</h3>
+            <p>
+              Participated in a seven-day research and training cruise during my oceanography education at the Federal University of Bahia, gaining early experience with ship-based oceanographic observations.
             </p>
           </article>
         </div>
